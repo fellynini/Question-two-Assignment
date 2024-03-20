@@ -1,0 +1,28 @@
+
+# Prompt user for input
+read -p "Enter Customer ID: " customer_id
+read -p "Enter Customer Name: " customer_name
+read -p "Enter Units Consumed: " units_consumed
+
+# Define charges per unit
+charge_1=120
+charge_2=150
+charge_3=180
+charge_4=200
+
+# Calculate total bill based on units consumed
+if ((units_consumed <= 199)); then
+    total_bill=$((units_consumed * charge_1))
+elif ((units_consumed >= 200 && units_consumed < 400)); then
+    total_bill=$((units_consumed * charge_2))
+elif ((units_consumed >= 400 && units_consumed < 600)); then
+    total_bill=$((units_consumed * charge_3))
+else
+    total_bill=$((units_consumed * charge_4))
+fi
+
+# Display results
+echo "Customer ID: $customer_id"
+echo "Customer Name: $customer_name"
+echo "Units Consumed: $units_consumed"
+echo "Total Bill (Ksh): $total_bill"
